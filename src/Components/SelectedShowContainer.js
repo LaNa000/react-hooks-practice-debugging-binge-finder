@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Episode from "./Components/Episode";
+import Episode from "./Episode";
 
 function SelectedShowContainer(props) {
   const selectedSeason = useState(1);
@@ -32,6 +32,17 @@ function SelectedShowContainer(props) {
 
   const { selectedShow } = props;
 
+  Array.prototype.unique = function () {
+    const arr = [];
+    for (let i = 0; i < this.length; i++) {
+      if (!arr.includes(this[i])) {
+        arr.push(this[i]);
+      }
+    }
+    return arr;
+  };
+  
+
   return (
     <div style={{ position: "static" }}>
       <h2>{selectedShow.name}</h2>
@@ -48,14 +59,4 @@ function SelectedShowContainer(props) {
   );
 }
 
-export SelectedShowContainer;
-
-Array.prototype.unique = function () {
-  const arr = [];
-  for (let i = 0; i < this.length; i++) {
-    if (!arr.includes(this[i])) {
-      arr.push(this[i]);
-    }
-  }
-  return arr;
-};
+export default SelectedShowContainer;
